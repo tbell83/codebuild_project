@@ -3,5 +3,5 @@ output "deployment_role_arn" {
 }
 
 output "project_arn" {
-  value = "${aws_codebuild_project.project.arn}"
+  value = "${aws_codebuild_project.project.id}"
 }
