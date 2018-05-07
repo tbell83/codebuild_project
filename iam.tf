@@ -32,8 +32,8 @@ data "aws_iam_policy_document" "ecr" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.deploy_logs.arn}",
-      "${aws_cloudwatch_log_group.deploy_logs.arn}:*",
+      "${join(",", aws_cloudwatch_log_group.deploy_logs.*.arn)}",
+      "${join(",", aws_cloudwatch_log_group.deploy_logs.*.arn)}:*",
     ]
   }
 
