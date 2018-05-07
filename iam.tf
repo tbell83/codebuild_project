@@ -16,6 +16,8 @@ data "aws_iam_policy_document" "deployment_role_assumption" {
 }
 
 data "aws_iam_policy_document" "ecr" {
+  count = "${var.count}"
+
   statement {
     sid       = "CodeCommitPolicy"
     actions   = ["codecommit:GitPull"]
