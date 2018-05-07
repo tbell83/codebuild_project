@@ -25,7 +25,7 @@ data "aws_iam_policy_document" "deployment_bucket" {
     ]
 
     principals {
-      identifiers = ["${aws_iam_role.deployment_role.arn}"]
+      identifiers = ["${join(",", aws_iam_role.deployment_role.*.arn)}"]
       type        = "AWS"
     }
   }

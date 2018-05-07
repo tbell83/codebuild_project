@@ -80,6 +80,6 @@ data "aws_iam_policy_document" "s3_access" {
 resource "aws_iam_role_policy" "deployment_role" {
   count  = "${var.count}"
   name   = "${var.name}-ecr"
-  role   = "${aws_iam_role.deployment_role.id}"
+  role   = "${join(",", aws_iam_role.deployment_role.*.id)}"
   policy = "${data.aws_iam_policy_document.ecr.json}"
 }
