@@ -5,3 +5,7 @@ output "deployment_role_arn" {
 output "project_arn" {
   value = "${join(",", aws_codebuild_project.project.*.id)}"
 }
+
+output "project_name" {
+  value = "${join(",", aws_codebuild_project.project.*.name)}"
+}
