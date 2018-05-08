@@ -39,3 +39,7 @@ variable "project_source" {
 variable "create_bucket" {
   default = "False"
 }
+
+variable "assume_deployment" {
+  default = []
+}
