@@ -12,6 +12,11 @@ data "aws_iam_policy_document" "deployment_role_assumption" {
       identifiers = ["codebuild.amazonaws.com"]
       type        = "Service"
     }
+
+    principals {
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/deployment/*"]
+      type        = "AWS"
+    }
   }
 }
 
