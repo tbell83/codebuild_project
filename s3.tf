@@ -15,6 +15,8 @@ resource "aws_s3_bucket_policy" "deployment_bucket" {
 }
 
 data "aws_iam_policy_document" "deployment_bucket" {
+  count = "${var.project_artifacts["type"] == "S3" ? var.count : 0}"
+
   statement {
     sid     = "CodeBuild"
     actions = ["s3:*"]
