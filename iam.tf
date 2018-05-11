@@ -1,5 +1,6 @@
 resource "aws_iam_role" "deployment_role" {
-  count              = "${var.deployment_role_name == "none" ? 1 : 0}"
+  count = "${var.deployment_role_name == "none" ? var.count : 0}"
+
   name               = "${var.name}-deployment-role"
   assume_role_policy = "${data.aws_iam_policy_document.deployment_role_assumption.json}"
 }
