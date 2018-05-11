@@ -43,3 +43,8 @@ variable "create_bucket" {
 variable "assume_deployment" {
   default = []
 }
+
+variable "deployment_role_name" {
+  default     = "none"
+  description = "Friendly name of the role codebuild will assume, if not set, the module will create an appropriate role."
+}

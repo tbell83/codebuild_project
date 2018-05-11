@@ -1,9 +1,9 @@
 output "deployment_role_arn" {
-  value = "${join(",", aws_iam_role.deployment_role.*.arn)}"
+  value = "${join(",", data.aws_iam_role.deployment_role.*.arn)}"
 }
 
 output "deployment_role_id" {
-  value = "${join(",", aws_iam_role.deployment_role.*.id)}"
+  value = "${join(",", data.aws_iam_role.deployment_role.*.id)}"
 }
 
 output "project_arn" {

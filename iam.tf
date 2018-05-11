@@ -1,5 +1,5 @@
 resource "aws_iam_role" "deployment_role" {
-  count              = "${var.count}"
+  count              = "${var.deployment_role_name == "none" ? var.count : 0}"
   name               = "${var.name}-deployment-role"
   assume_role_policy = "${data.aws_iam_policy_document.deployment_role_assumption.json}"
 }
@@ -83,8 +83,12 @@ data "aws_iam_policy_document" "s3_access" {
 }
 
 resource "aws_iam_role_policy" "deployment_role" {
-  count  = "${var.count}"
+  count  = "${var.deployment_role_name == "none" ? var.count : 0}"
   name   = "${var.name}-ecr"
-  role   = "${join(",", aws_iam_role.deployment_role.*.id)}"
+  role   = "${data.aws_iam_role.deployment_role.id}"
   policy = "${data.aws_iam_policy_document.ecr.json}"
+}
+
+data "aws_iam_role" "deployment_role" {
+  name = "${var.deployment_role_name != "none" ? var.deployment_role_name : join("", aws_iam_role.deployment_roleaws_iam_role.*.name)}"
 }
