@@ -90,5 +90,5 @@ resource "aws_iam_role_policy" "deployment_role" {
 }
 
 data "aws_iam_role" "deployment_role" {
-  name = "${var.deployment_role_name != "none" ? var.deployment_role_name : join("", aws_iam_role.deployment_roleaws_iam_role.*.name)}"
+  name = "${var.deployment_role_name != "none" ? var.deployment_role_name : join("", aws_iam_role.deployment_role.*.name)}"
 }
