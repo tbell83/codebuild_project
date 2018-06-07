@@ -48,3 +48,7 @@ variable "deployment_role_name" {
   default     = "none"
   description = "Friendly name of the role codebuild will assume, if not set, the module will create an appropriate role."
 }
+
+variable "badge_enabled" {
+  default = "false"
+}

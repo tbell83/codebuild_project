@@ -6,5 +6,5 @@ resource "aws_codebuild_project" "project" {
   environment   = "${list(var.project_environment)}"
   source        = "${list(var.project_source)}"
   tags          = "${var.tags}"
-  badge_enabled = true
+  badge_enabled = "${var.bagde_enabled}"
 }
