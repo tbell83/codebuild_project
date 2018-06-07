@@ -15,5 +15,5 @@ output "project_name" {
 }
 
 output "badge_url" {
-  value = "${aws_codebuild_project.project.badge_url}"
+  value = "${aws_codebuild_project.project.*.badge_url}"
 }
