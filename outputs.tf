@@ -13,3 +13,7 @@ output "project_arn" {
 output "project_name" {
   value = "${join(",", aws_codebuild_project.project.*.name)}"
 }
+
+output "badge_url" {
+  value = "${aws_codebuild_project.project.badge_url}"
+}
